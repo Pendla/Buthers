@@ -74,39 +74,12 @@ impl Game {
     }
 
     pub fn on_keypress(&mut self, args: &ButtonArgs) {
+        let state = args.state == ButtonState::Press;
         match args.button {
-            Button::Keyboard(Key::D) => match args.state {
-                ButtonState::Press => {
-                    self.keyboard_state.d = true;
-                }
-                ButtonState::Release => {
-                    self.keyboard_state.d = false;
-                }
-            },
-            Button::Keyboard(Key::W) => match args.state {
-                ButtonState::Press => {
-                    self.keyboard_state.w = true;
-                }
-                ButtonState::Release => {
-                    self.keyboard_state.w = false;
-                }
-            },
-            Button::Keyboard(Key::A) => match args.state {
-                ButtonState::Press => {
-                    self.keyboard_state.a = true;
-                }
-                ButtonState::Release => {
-                    self.keyboard_state.a = false;
-                }
-            },
-            Button::Keyboard(Key::S) => match args.state {
-                ButtonState::Press => {
-                    self.keyboard_state.s = true;
-                }
-                ButtonState::Release => {
-                    self.keyboard_state.s = false;
-                }
-            },
+            Button::Keyboard(Key::D) => self.keyboard_state.d = state,
+            Button::Keyboard(Key::W) => self.keyboard_state.w = state,
+            Button::Keyboard(Key::A) => self.keyboard_state.a = state,
+            Button::Keyboard(Key::S) => self.keyboard_state.s = state,
             _ => {}
         }
     }
