@@ -1,16 +1,15 @@
-extern crate piston;
-extern crate graphics;
 extern crate glutin_window;
+extern crate graphics;
 extern crate opengl_graphics;
+extern crate piston;
 
 mod models;
 mod game;
 
-
-use piston::input::{ RenderEvent, UpdateEvent, ButtonEvent};
+use piston::input::{ButtonEvent, RenderEvent, UpdateEvent};
 use glutin_window::GlutinWindow as Window;
-use opengl_graphics::{ OpenGL, GlGraphics };
-use piston::event_loop::{Events, EventSettings};
+use opengl_graphics::{GlGraphics, OpenGL};
+use piston::event_loop::{EventSettings, Events};
 use piston::window::WindowSettings;
 
 use game::Game;

@@ -1,7 +1,7 @@
-use ::opengl_graphics::{ GlGraphics };
-use ::piston::input::{ RenderArgs, UpdateArgs, ButtonArgs, Button, ButtonState};
-use ::piston::input::keyboard::Key;
-use ::models::{ Player, Movable };
+use opengl_graphics::GlGraphics;
+use piston::input::{Button, ButtonArgs, ButtonState, RenderArgs, UpdateArgs};
+use piston::input::keyboard::Key;
+use models::{Movable, Player};
 
 const MOVE_SPEED: f64 = 100.0;
 
@@ -26,21 +26,20 @@ impl KeyboardState {
 pub struct Game {
     gl: GlGraphics,
     player: Player,
-    keyboard_state: KeyboardState
+    keyboard_state: KeyboardState,
 }
-
 
 impl Game {
     pub fn new(gl: GlGraphics) -> Game {
         Game {
             gl: gl,
             player: Player::new(0.0, 0.0, 16),
-            keyboard_state: KeyboardState::new()
+            keyboard_state: KeyboardState::new(),
         }
     }
 
     pub fn render(&mut self, args: &RenderArgs) {
-        use graphics::{ Transformed, clear, rectangle };
+        use graphics::{clear, rectangle, Transformed};
         let x = self.player.pos.x;
         let y = self.player.pos.y;
 
@@ -51,7 +50,7 @@ impl Game {
                 [1.0, 0.0, 1.0, 1.0],
                 [0.0, 0.0, 16.0, 16.0],
                 transform,
-                opengl
+                opengl,
             );
         })
     }
@@ -76,44 +75,36 @@ impl Game {
 
     pub fn on_keypress(&mut self, args: &ButtonArgs) {
         match args.button {
-            Button::Keyboard(Key::D) =>  {
-                match args.state {
-                    ButtonState::Press => {
-                        self.keyboard_state.d = true;
-                    },
-                    ButtonState::Release => {
-                        self.keyboard_state.d = false;
-                    }
+            Button::Keyboard(Key::D) => match args.state {
+                ButtonState::Press => {
+                    self.keyboard_state.d = true;
+                }
+                ButtonState::Release => {
+                    self.keyboard_state.d = false;
                 }
             },
-            Button::Keyboard(Key::W) =>  {
-                match args.state {
-                    ButtonState::Press => {
-                        self.keyboard_state.w = true;
-                    },
-                    ButtonState::Release => {
-                        self.keyboard_state.w = false;
-                    }
+            Button::Keyboard(Key::W) => match args.state {
+                ButtonState::Press => {
+                    self.keyboard_state.w = true;
+                }
+                ButtonState::Release => {
+                    self.keyboard_state.w = false;
                 }
             },
-            Button::Keyboard(Key::A) =>  {
-                match args.state {
-                    ButtonState::Press => {
-                        self.keyboard_state.a = true;
-                    },
-                    ButtonState::Release => {
-                        self.keyboard_state.a = false;
-                    }
+            Button::Keyboard(Key::A) => match args.state {
+                ButtonState::Press => {
+                    self.keyboard_state.a = true;
+                }
+                ButtonState::Release => {
+                    self.keyboard_state.a = false;
                 }
             },
-            Button::Keyboard(Key::S) =>  {
-                match args.state {
-                    ButtonState::Press => {
-                        self.keyboard_state.s = true;
-                    },
-                    ButtonState::Release => {
-                        self.keyboard_state.s = false;
-                    }
+            Button::Keyboard(Key::S) => match args.state {
+                ButtonState::Press => {
+                    self.keyboard_state.s = true;
+                }
+                ButtonState::Release => {
+                    self.keyboard_state.s = false;
                 }
             },
             _ => {}

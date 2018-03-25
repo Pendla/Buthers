@@ -1,4 +1,3 @@
-
 pub trait Movable {
     fn move_by(&mut self, x: f64, y: f64);
     fn move_to(&mut self, x: f64, y: f64);
@@ -7,7 +6,7 @@ pub trait Movable {
 #[derive(Debug)]
 pub struct Position {
     pub x: f64,
-    pub y: f64
+    pub y: f64,
 }
 
 #[derive(Debug)]
@@ -22,7 +21,7 @@ impl Player {
         Self {
             width: size,
             height: size,
-            pos: Position {x: x, y: y}
+            pos: Position { x: x, y: y },
         }
     }
 }
