@@ -7,7 +7,7 @@ mod models;
 mod game;
 
 
-use piston::input::{ RenderEvent, UpdateEvent };
+use piston::input::{ RenderEvent, UpdateEvent, ButtonEvent};
 use glutin_window::GlutinWindow as Window;
 use opengl_graphics::{ OpenGL, GlGraphics };
 use piston::event_loop::{Events, EventSettings};
@@ -35,6 +35,9 @@ fn main() {
         }
         if let Some(u) = e.update_args() {
             app.update(&u);
+        }
+        if let Some(b) = e.button_args() {
+            app.on_keypress(&b);
         }
     }
 }
