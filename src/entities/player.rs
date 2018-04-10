@@ -2,7 +2,7 @@ use entities::Updateable;
 use ggez::Context;
 use ggez::graphics::{self, Color};
 
-use entities::{Renderable, Movable, Position};
+use entities::{Movable, Position, Renderable};
 use input::InputState;
 
 const MOVE_SPEED: f32 = 150.0;
