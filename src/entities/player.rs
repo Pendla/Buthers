@@ -36,10 +36,10 @@ impl Movable for Player {
 }
 
 impl Renderable for Player {
-    fn render(&mut self, ctx: &mut Context) {
-        graphics::set_color(ctx, Color::from_rgb(255, 0, 0)).unwrap();
+    fn render(&mut self, context: &mut Context) {
+        graphics::set_color(context, Color::from_rgb(160, 160, 160)).unwrap();
         graphics::rectangle(
-            ctx,
+            context,
             graphics::DrawMode::Fill,
             graphics::Rect::new(self.pos.x, self.pos.y, self.width, self.height),
         ).unwrap();

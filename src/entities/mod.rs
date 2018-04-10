@@ -5,6 +5,9 @@ use input::InputState;
 pub use self::player::Player;
 mod player;
 
+pub use self::world::World;
+mod world;
+
 pub struct Position {
     pub x: f32,
     pub y: f32,
